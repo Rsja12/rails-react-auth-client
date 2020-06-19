@@ -1,20 +1,22 @@
 import React from 'react'
 
-const Login = () => {
+const Login = ({ handleChange, handleSubmit }) => {
     return (
         <div>
-            <form>
+            <form onSubmit={ handleSubmit }>
                 <input 
                     type='text'
                     name='email'
                     placeholder='email'
                     autoComplete='off'
+                    onChange={ handleChange }
                 />
                 <input 
-                    type='text'
+                    type='password'
                     name='password'
                     placeholder='password'
                     autoComplete='off'
+                    onChange={ handleChange }
                 />
                 <input 
                     type='submit'
