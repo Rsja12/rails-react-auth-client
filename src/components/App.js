@@ -30,7 +30,27 @@ export class App extends Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        console.log('test')
+        // submit the info from form to the backend
+        const userInfo = this.state.loginForm
+
+        fetch('http://localhost:3000/login', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ user: userInfo })
+        })
+        .then(res => res.json())
+        .then(userJSON => {
+            // failure
+            if (userJSON.error) alert('Invalid Credentials')
+            // success
+            this.setState({
+                currentUser: userJSON
+            })
+        })
+        .catch(err => console.log(err))
+        
     }
 
     render() {
