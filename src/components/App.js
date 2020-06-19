@@ -39,6 +39,8 @@ export class App extends Component {
                 <Login
                     handleChange={ this.handleChange }
                     handleSubmit={ this.handleSubmit }
+                    email={ this.state.loginForm.email }
+                    password={ this.state.loginForm.password }
                 />
             </div>
         )

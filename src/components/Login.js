@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Login = ({ handleChange, handleSubmit }) => {
+const Login = ({ handleChange, handleSubmit, email, password }) => {
     return (
         <div>
             <form onSubmit={ handleSubmit }>
@@ -10,6 +10,7 @@ const Login = ({ handleChange, handleSubmit }) => {
                     placeholder='email'
                     autoComplete='off'
                     onChange={ handleChange }
+                    value={ email }
                 />
                 <input 
                     type='password'
@@ -17,6 +18,7 @@ const Login = ({ handleChange, handleSubmit }) => {
                     placeholder='password'
                     autoComplete='off'
                     onChange={ handleChange }
+                    value={ password }
                 />
                 <input 
                     type='submit'
