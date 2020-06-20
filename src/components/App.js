@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Login from './Login'
+import SecretsList from './SecretsList'
 
 export class App extends Component {
 
@@ -9,7 +10,8 @@ export class App extends Component {
         loginForm: {
             email: '',
             password: ''
-        }
+        },
+        secrets: []
     }
 
     handleChange = e => {
@@ -44,6 +46,7 @@ export class App extends Component {
         .then(res => {
             // failure
             if (res.error) alert('Invalid Credentials')
+
             // success
             this.setState({
                 currentUser: res
@@ -52,6 +55,13 @@ export class App extends Component {
         // catch js errors
         .catch(err => console.log(err))
         
+    }
+
+    getSecrets = () => {
+        fetch('http://localhost:3000/secrets')
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
 
     render() {
@@ -63,6 +73,8 @@ export class App extends Component {
                     email={ this.state.loginForm.email }
                     password={ this.state.loginForm.password }
                 />
+                <button onClick={ this.getSecrets }>Show Secrets</button>
+                <SecretsList secrets={ this.state.secrets } />
             </div>
         )
     }
