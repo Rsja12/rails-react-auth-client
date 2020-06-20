@@ -41,14 +41,15 @@ export class App extends Component {
             body: JSON.stringify({ user: userInfo })
         })
         .then(res => res.json())
-        .then(userJSON => {
+        .then(res => {
             // failure
-            if (userJSON.error) alert('Invalid Credentials')
+            if (res.error) alert('Invalid Credentials')
             // success
             this.setState({
-                currentUser: userJSON
+                currentUser: res
             })
         })
+        // catch js errors
         .catch(err => console.log(err))
         
     }
