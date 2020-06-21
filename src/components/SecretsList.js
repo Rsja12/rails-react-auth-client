@@ -3,7 +3,7 @@ import React from 'react'
 const SecretsList = ({ secrets }) => {
 
     const allSecrets = secrets.map( secret => {
-        return <p>{ secret.content }</p>
+        return <p key={ secret.id }>{ secret.content }</p>
     })
 
     return (

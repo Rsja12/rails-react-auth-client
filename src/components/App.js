@@ -60,7 +60,14 @@ export class App extends Component {
     getSecrets = () => {
         fetch('http://localhost:3000/secrets')
         .then(res => res.json())
-        .then(res => console.log(res))
+        .then(res => {
+            // failure
+            if (res.error) alert('Not authorized')
+            // success
+            this.setState({
+                secrets: res
+            })
+        })
         .catch(err => console.log(err))
     }
 
