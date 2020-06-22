@@ -14,6 +14,16 @@ export class App extends Component {
         secrets: []
     }
 
+    componentDidMount() {
+        const token = localStorage.getItem('token')
+        if (token) {
+            fetch('http://localhost:3000/get_current_user')
+            .then(res => res.json())
+            .then(res => console.log(res))
+        }
+
+    }
+
     handleChange = e => {
         // grab name and value from e.target
         // name is the name attr of input field
