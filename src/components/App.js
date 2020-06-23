@@ -17,7 +17,11 @@ export class App extends Component {
     componentDidMount() {
         const token = localStorage.getItem('token')
         if (token) {
-            fetch('http://localhost:3000/get_current_user')
+            fetch('http://localhost:3000/get_current_user', {
+                headers: {
+                    'Authorization': token
+                }
+            })
             .then(res => res.json())
             .then(res => console.log(res))
         }
