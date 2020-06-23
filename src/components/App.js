@@ -94,8 +94,6 @@ export class App extends Component {
                     email={ this.state.loginForm.email }
                     password={ this.state.loginForm.password }
                 />
-                <button onClick={ this.getSecrets }>Show Secrets</button>
-                <SecretsList secrets={ this.state.secrets } />
             </div>
         )
     }
