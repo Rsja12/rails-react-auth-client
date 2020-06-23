@@ -3,21 +3,36 @@ import React, { Component } from 'react'
 export class SignUp extends Component {
 
     state = {
-        name: '',
-        email: '',
-        password: ''
+        userInfo: {
+            name: '',
+            email: '',
+            password: ''
+        }
     }
 
     handleFormChange = e => {
         const { name, value } = e.target
         this.setState({
-            [name]: value
+            userInfo: {
+                ...this.state.userInfo,
+                [name]: value
+            }
         })
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log('submit')
+
+        fetch('http://localhost:3000/users', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ user: this.state.userInfo })
+        })
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
 
     render() {
