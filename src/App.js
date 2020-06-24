@@ -5,7 +5,6 @@ import NavBar from './components/NavBar'
 import HomePage from './components/HomePage'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
-import SecretList from './components/SecretList'
 
 const App = () => {
     return (
@@ -15,7 +14,6 @@ const App = () => {
                 <Route exact path='/' component={ HomePage } />
                 <Route exact path='/login' component={ Login } />
                 <Route exact path='/signup' component={ SignUp } />
-                <Route exact path='/secrets' component={ SecretList } />
             </BrowserRouter>
         </div>
     )

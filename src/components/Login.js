@@ -6,7 +6,13 @@ export class Login extends Component {
         userInfo: {
             email: '',
             password: ''
-        }
+        },
+    }
+
+    renderBtn = () => {
+        const token = localStorage.getItem('jwt')
+        if (token) return 'Logout'
+        return 'Login'
     }
 
     handleFormChange = e => {
@@ -60,7 +66,7 @@ export class Login extends Component {
                     />
                 </div>
                 <div className='form-group'>
-                    <input type='submit' className='form-control' value='Submit' />
+                    <input type='submit' className='form-control' value='Login' />
                 </div>
             </form>
         )
