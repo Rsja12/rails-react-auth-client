@@ -23,8 +23,16 @@ const HomePage = () => {
                         </div>
                     </Link>
                 </div>
+                <div className='col'>
+                    <Link to='/secrets'>
+                        <div className='card text-center'>
+                            <div className='card-body'>
+                                <div className='card-title'>Secrets</div>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
             </div>
-            
         </div>
     )
 }
