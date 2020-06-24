@@ -22,7 +22,17 @@ export class Login extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        console.log(this.state.userInfo)
+        
+        fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ user: this.state.userInfo })
+        })
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
 
     render() {
