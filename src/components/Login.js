@@ -31,7 +31,10 @@ export class Login extends Component {
             body: JSON.stringify({ user: this.state.userInfo })
         })
         .then(res => res.json())
-        .then(res => console.log(res))
+        .then(res => {
+            window.localStorage.setItem('jwt', res.jwt)
+            this.props.history.push('/')
+        })
         .catch(err => console.log(err))
     }
 
