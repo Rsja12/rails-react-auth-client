@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import AuthButton from './AuthButton'
-
 const NavBar = () => {
     return (
         <nav className='navbar navbar-dark bg-dark'>
